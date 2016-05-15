@@ -1,0 +1,14 @@
+# Mac DS_Store Files
+.DS_Store
+
+bin/
+Debug/
+Release/
+obj/
+*.o
+*.out
+*.depend
+*.cbp
+*.layout
+*.exe
+lab/
