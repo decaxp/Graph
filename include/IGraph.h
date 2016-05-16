@@ -26,6 +26,7 @@ class IGraph
 {
     public:
         IGraph();
+        IGraph(deque<Edge>* pEdges,int pVerticleNumber);
         ~IGraph();
 
         void Print();
@@ -33,7 +34,7 @@ class IGraph
         virtual void readGraphFromFile(char* name);
         virtual void saveGraphToFile(char* name);
         void generateRandomGraph();
-        virtual void minSpaningTree();
+        virtual IGraph minSpaningTree();
 
     protected:
         Edge strToEdge(string str,int parentNum);

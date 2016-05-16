@@ -7,10 +7,23 @@
 
 using namespace std;
 
-IGraph::IGraph(){};
+IGraph::IGraph(){edges=nullptr;}
 IGraph::~IGraph(){
     delete [] edges;
     edges=nullptr;
+}
+
+IGraph::IGraph(deque<Edge>* pEdges,int pVerticleNumber){
+    verticleCount=pVerticleNumber;
+    edges=new deque<Edge>[verticleCount];
+    Edge ed;
+    for(int i=0;i<pEdges->size();++i){
+        edges[(*pEdges)[i].parentVerticleNumber].push_back((*pEdges)[i]);
+        ed.verticleNumber=(*pEdges)[i].parentVerticleNumber;
+        ed.parentVerticleNumber=(*pEdges)[i].verticleNumber;
+        ed.edgeWeight=(*pEdges)[i].edgeWeight;
+        edges[(*pEdges)[i].verticleNumber].push_back(ed);
+    }
 }
 
 void IGraph::readGraphFromFile(char* name){
@@ -68,5 +81,6 @@ void IGraph::Print(){
 
 void IGraph::saveGraphToFile(char* name){}
 
-void IGraph::minSpaningTree(){//return *this;
+IGraph IGraph::minSpaningTree(){
+    return *this;
 }

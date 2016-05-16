@@ -1,19 +1,16 @@
-#include <iostream>
-#include <stdio.h>
 #include "ParallelSpanTreeGraph.h"
-
-#include <vector>
-#include <thread>
 #include <iostream>
 
 using namespace std;
 int main()
 {
-    ParallelSpanTreeGraph g(3);
+    int threadCount;
+    cout<<"Enter thread count\n";
+    cin>>threadCount;
+    ParallelSpanTreeGraph g(threadCount);
     g.readGraphFromFile("graph.txt");
-    g.minSpaningTree();
-    //g.Print();
+    IGraph result=g.minSpaningTree();
+    result.Print();
 
     return 0;
-
 }

@@ -11,7 +11,7 @@ class ParallelSpanTreeGraph : public IGraph
         ParallelSpanTreeGraph(int thrCount=0);
         virtual ~ParallelSpanTreeGraph();
 
-        void minSpaningTree();
+        IGraph minSpaningTree();
     protected:
         int threadCount;
         deque<Edge> mayEdges;
