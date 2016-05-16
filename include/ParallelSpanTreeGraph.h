@@ -3,7 +3,6 @@
 
 #include <IGraph.h>
 #include <thread>
-#include <vector>
 #include <deque>
 
 class ParallelSpanTreeGraph : public IGraph
@@ -17,10 +16,10 @@ class ParallelSpanTreeGraph : public IGraph
         int threadCount;
         deque<Edge> mayEdges;
         deque<Edge> minSpanTreeEdges;
-        vector<std::thread> threads;
+        deque<std::thread> threads;
         bool * sawEdges;
 
-        deque<Edge>::iterator findMinEdgeInSec();//последовательная версия
+        void findMinEdge(int i);
 };
 
 #endif // PARALLELSPANTREEGRAPH_H

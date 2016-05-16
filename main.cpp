@@ -9,14 +9,11 @@
 using namespace std;
 int main()
 {
-
-    ParallelSpanTreeGraph g;
+    ParallelSpanTreeGraph g(3);
     g.readGraphFromFile("graph.txt");
     g.minSpaningTree();
     //g.Print();
 
-    int a;
-    cin>>a;
-
+    return 0;
 
 }
